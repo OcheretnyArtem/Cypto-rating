@@ -13,27 +13,23 @@ data class ListingData(
         val name: String?,
         val numMarketPairs: Number?,
         val platform: Any?,
-        val quote: Quote?,
+        val quote: Map<String, Quote>?,
         val slug: String?,
-            val symbol: String?,
+        val symbol: String?,
         val tags: List<String?>?,
         val totalSupply: Number?
     ) {
         data class Quote(
-            val uSD: USD?
-        ) {
-            data class USD(
-                val lastUpdated: String?,
-                val marketCap: Number?,
-                val percentChange1h: Number?,
-                val percentChange24h: Number?,
-                val percentChange30d: Number?,
-                val percentChange60d: Number?,
-                val percentChange7d: Number?,
-                val percentChange90d: Number?,
-                val price: Number?,
-                val volume24h: Number?
-            )
-        }
+            val lastUpdated: String?,
+            val marketCap: Number?,
+            val percentChange1h: Number?,
+            val percentChange24h: Number?,
+            val percentChange30d: Number?,
+            val percentChange60d: Number?,
+            val percentChange7d: Number?,
+            val percentChange90d: Number?,
+            val price: Number?,
+            val volume24h: Number?
+        )
     }
 }

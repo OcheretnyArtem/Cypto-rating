@@ -29,7 +29,7 @@ data class ListingDataResponse(
         @SerializedName("platform")
         val platform: Any?,
         @SerializedName("quote")
-        val quote: Quote?,
+        val quote: Map<String, Quote>?,
         @SerializedName("slug")
         val slug: String?,
         @SerializedName("symbol")
@@ -40,32 +40,28 @@ data class ListingDataResponse(
         val totalSupply: Number?
     ) {
         data class Quote(
-            @SerializedName("USD")
-            val uSD: USD?
-        ) {
-            data class USD(
-                @SerializedName("last_updated")
-                val lastUpdated: String?,
-                @SerializedName("market_cap")
-                val marketCap: Number?,
-                @SerializedName("percent_change_1h")
-                val percentChange1h: Number?,
-                @SerializedName("percent_change_24h")
-                val percentChange24h: Number?,
-                @SerializedName("percent_change_30d")
-                val percentChange30d: Number?,
-                @SerializedName("percent_change_60d")
-                val percentChange60d: Number?,
-                @SerializedName("percent_change_7d")
-                val percentChange7d: Number?,
-                @SerializedName("percent_change_90d")
-                val percentChange90d: Number?,
-                @SerializedName("price")
-                val price: Number?,
-                @SerializedName("volume_24h")
-                val volume24h: Number?
-            )
-        }
+            @SerializedName("last_updated")
+            val lastUpdated: String?,
+            @SerializedName("market_cap")
+            val marketCap: Number?,
+            @SerializedName("percent_change_1h")
+            val percentChange1h: Number?,
+            @SerializedName("percent_change_24h")
+            val percentChange24h: Number?,
+            @SerializedName("percent_change_30d")
+            val percentChange30d: Number?,
+            @SerializedName("percent_change_60d")
+            val percentChange60d: Number?,
+            @SerializedName("percent_change_7d")
+            val percentChange7d: Number?,
+            @SerializedName("percent_change_90d")
+            val percentChange90d: Number?,
+            @SerializedName("price")
+            val price: Number?,
+            @SerializedName("volume_24h")
+            val volume24h: Number?
+        )
+
     }
 
     data class Status(

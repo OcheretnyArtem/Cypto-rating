@@ -32,8 +32,15 @@ class CryptoRecycler(layout: Int, items: List<ListingData.Data>) :
                 )
             ).into(trend)
             cryptoName.text = any.name
-            cryptoPay.text = "$ " +any.quote?.uSD?.price.toString()
-            cryptoChangePay.text = "24 hour: " +any?.quote?.uSD?.percentChange24h.toString() + "%"
+//            cryptoPay.text = "$ " +any.quote?.uSD?.price.toString()
+//            cryptoChangePay.text = "24 hour: " +any?.quote?.uSD?.percentChange24h.toString() + "%"
+
+            any.quote?.forEach { k, v ->
+                cryptoPay.text = "$ " + v.price.toString()
+                cryptoChangePay.text = "24 hour: " + v.percentChange24h.toString() + "%"
+            }
+
+
         }
     }
 
