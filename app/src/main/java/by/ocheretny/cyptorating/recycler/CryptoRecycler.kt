@@ -13,6 +13,7 @@ class CryptoRecycler(layout: Int, items: List<ListingData.Data>) :
     SimpleRecyclerAdapter<ListingData.Data, CryptoRecycler.CryptoViewHolder>(layout, items) {
 
     inner class CryptoViewHolder(view: View) : SimpleViewHolder<ListingData.Data>(view) {
+
         override fun setData(itemView: View, any: ListingData.Data) {
             val logo = itemView.findViewById<ImageView>(R.id.hw8_crypto_logo)
             val trend = itemView.findViewById<ImageView>(R.id.hw8_crypto_trend)
