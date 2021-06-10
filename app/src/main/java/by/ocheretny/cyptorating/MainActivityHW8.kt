@@ -19,6 +19,7 @@ class MainActivityHW8 : AppCompatActivity() {
 
 
 
+
         networkingViewModel.listingData.observe(this){
             val adapter =
                 it.data?.let { it1 -> CryptoRecycler(R.layout.fragment_item_crypto_hw8, it1) }
