@@ -1,16 +1,23 @@
 package com.uogames.longProject.HW8.recycler
 
+import android.app.Application
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
 import by.ocheretny.cyptorating.R
 import com.squareup.picasso.Picasso
 import com.uogames.lesson23.recycler.SimpleRecyclerAdapter
 import com.uogames.lesson23.recycler.SimpleViewHolder
 import com.uogames.longProject.HW8.data.entities.currency.ListingData
 
-class CryptoRecycler(layout: Int, items: List<ListingData.Data>) :
+class CryptoRecycler(layout: Int, items: List<ListingData.Data>, application: Application) :
     SimpleRecyclerAdapter<ListingData.Data, CryptoRecycler.CryptoViewHolder>(layout, items) {
+
+    private val networkingViewModel by lazy {
+        ViewModelProvider.AndroidViewModelFactory(application)
+            .create(NetworkingViewModel::class.java)
+    }
 
     inner class CryptoViewHolder(view: View) : SimpleViewHolder<ListingData.Data>(view) {
 
@@ -32,12 +39,14 @@ class CryptoRecycler(layout: Int, items: List<ListingData.Data>) :
                 )
             ).into(trend)
             cryptoName.text = any.name
-//            cryptoPay.text = "$ " +any.quote?.uSD?.price.toString()
-//            cryptoChangePay.text = "24 hour: " +any?.quote?.uSD?.percentChange24h.toString() + "%"
 
             any.quote?.forEach { k, v ->
                 cryptoPay.text = "$ " + v.price.toString()
                 cryptoChangePay.text = "24 hour: " + v.percentChange24h.toString() + "%"
+            }
+
+            networkingViewModel.loadLatestFromName(any.id.toString(),"BYN"){
+
             }
 
 
