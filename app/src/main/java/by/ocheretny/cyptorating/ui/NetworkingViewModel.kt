@@ -1,4 +1,4 @@
-package com.uogames.longProject.HW8
+package by.ocheretny.cyptorating.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
