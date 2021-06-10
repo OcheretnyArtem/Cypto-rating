@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Cypto rating</string>
+    <string name="link_get_logo_crypto">https://s2.coinmarketcap.com/static/img/coins/64x64/</string>
+    <string name="png_format">.png</string>
+    <string name="link_crypto_trend">https://s3.coinmarketcap.com/generated/sparklines/web/7d/usd/</string>
+    
 </resources>
