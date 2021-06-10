@@ -14,5 +14,5 @@ interface QuoteDao {
     suspend fun updateQuote(quote: Quote)
 
     @Query("SELECT * FROM quote_table WHERE id = :id")
-    suspend fun getQuote(id: Number) : Quote
+    suspend fun getQuote(id: Number?) : Quote
 }
