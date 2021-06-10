@@ -13,7 +13,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class NetworkingViewModel(application: Application) : AndroidViewModel(application) {
+class NetworkingViewModel : ViewModel() {
 
     private val repository = CurrencyRepository()
     private val freeRepository = CurrencyFreeRepository()

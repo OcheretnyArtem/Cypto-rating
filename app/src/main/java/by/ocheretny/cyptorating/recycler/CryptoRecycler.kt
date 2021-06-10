@@ -13,13 +13,8 @@ import com.uogames.lesson23.recycler.SimpleViewHolder
 import com.uogames.longProject.HW8.NetworkingViewModel
 import com.uogames.longProject.HW8.data.entities.currency.ListingData
 
-class CryptoRecycler(layout: Int, items: List<ListingData.Data>, application: Application) :
+class CryptoRecycler(layout: Int, items: List<ListingData.Data>, val viewModel:NetworkingViewModel) :
     SimpleRecyclerAdapter<ListingData.Data, CryptoRecycler.CryptoViewHolder>(layout, items) {
-
-    private val networkingViewModel by lazy {
-        ViewModelProvider.AndroidViewModelFactory(application)
-            .create(NetworkingViewModel::class.java)
-    }
 
     inner class CryptoViewHolder(view: View) : SimpleViewHolder<ListingData.Data>(view) {
 
@@ -47,7 +42,7 @@ class CryptoRecycler(layout: Int, items: List<ListingData.Data>, application: Ap
                 cryptoChangePay.text = "24 hour: " + v.percentChange24h.toString() + "%"
             }
 
-            networkingViewModel.loadLatestFromName(any.id.toString(),"BYN"){
+            viewModel.loadLatestFromName(any.id.toString(),"BYN"){
 
             }
 
