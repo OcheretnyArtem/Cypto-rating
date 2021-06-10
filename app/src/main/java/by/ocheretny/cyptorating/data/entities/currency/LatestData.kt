@@ -1,13 +1,18 @@
-package com.uogames.longProject.HW8.data.entities.currency
+package by.ocheretny.cyptorating.data.entities.currency
 
-data class ListingData(
-    val `data`: List<Data>?
+import com.google.gson.annotations.SerializedName
+
+class LatestData(
+    val `data`: Map<String, Data>?,
+    val status: Status?
 ) {
     data class Data(
         val circulatingSupply: Number?,
         val cmcRank: Number?,
         val dateAdded: String?,
         val id: Number?,
+        val isFiat: Number?,
+        val isMarketCapIncludedInCalc: Number?,
         val lastUpdated: String?,
         val maxSupply: Number?,
         val name: String?,
@@ -32,4 +37,13 @@ data class ListingData(
             val volume24h: Number?
         )
     }
+
+    data class Status(
+        val creditCount: Number?,
+        val elapsed: Number?,
+        val errorCode: Number?,
+        val errorMessage: Any?,
+        val notice: Any?,
+        val timestamp: String?
+    )
 }

@@ -1,17 +1,22 @@
 package com.uogames.longProject.HW8
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import by.ocheretny.cyptorating.data.entities.currency.LatestData
+import by.ocheretny.cyptorating.repository.currency.CurrencyFreeRepository
 import com.uogames.longProject.HW8.data.entities.currency.ListingData
 import com.uogames.longProject.HW8.repository.currency.CurrencyRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class NetworkingViewModel : ViewModel() {
+class NetworkingViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository = CurrencyRepository()
+    private val freeRepository = CurrencyFreeRepository()
     private val scope = CoroutineScope(Dispatchers.IO)
 
 
@@ -28,6 +33,20 @@ class NetworkingViewModel : ViewModel() {
             } catch (e: Exception) {
                 _exceptionLoad.postValue(e.message)
             }
+        }
+    }
+
+    fun loadLatestFromName(id: String, convertName: String, block: (LatestData?) -> Unit) {
+        scope.launch {
+            val result = freeRepository.loadDataFromName(id, convertName)
+            launch(Dispatchers.Main) { block(result) }
+        }
+    }
+
+    fun loadLatestFromId(id: String, convertId: String, block: (LatestData?) -> Unit) {
+        scope.launch {
+            val result = freeRepository.loadDataFromId(id, convertId)
+            launch(Dispatchers.Main) { block(result) }
         }
     }
 
