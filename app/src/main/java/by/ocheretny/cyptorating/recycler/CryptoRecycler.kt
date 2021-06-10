@@ -1,7 +1,6 @@
 package com.uogames.longProject.HW8.recycler
 
 import android.app.Application
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -10,7 +9,6 @@ import by.ocheretny.cyptorating.R
 import com.squareup.picasso.Picasso
 import com.uogames.lesson23.recycler.SimpleRecyclerAdapter
 import com.uogames.lesson23.recycler.SimpleViewHolder
-import com.uogames.longProject.HW8.NetworkingViewModel
 import com.uogames.longProject.HW8.data.entities.currency.ListingData
 
 class CryptoRecycler(layout: Int, items: List<ListingData.Data>, application: Application) :
