@@ -1,5 +1,7 @@
 package com.uogames.longProject.HW8
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,7 +13,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class NetworkingViewModel : ViewModel() {
+class NetworkingViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository = CurrencyRepository()
     private val freeRepository = CurrencyFreeRepository()

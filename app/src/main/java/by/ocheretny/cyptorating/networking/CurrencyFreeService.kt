@@ -8,7 +8,7 @@ import retrofit2.http.Query
 
 interface CurrencyFreeService {
 
-    @GET("/v1/cryptocurrency/quotes/latest?id={id}&convert={convert}")
+    @GET("/v1/cryptocurrency/quotes/latest?")
     suspend fun loadDataFromName(
         @Query("id")
         limit: String = "1",
@@ -16,7 +16,7 @@ interface CurrencyFreeService {
         convert: String = "USD"
     ): Response<LatestDataResponse>
 
-    @GET("/v1/cryptocurrency/quotes/latest?id={id}&convert_id={convertId}")
+    @GET("/v1/cryptocurrency/quotes/latest?")
     suspend fun loadDataFromId(
         @Query("id")
         limit: String = "1",
