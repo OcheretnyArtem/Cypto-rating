@@ -1,4 +1,4 @@
-package com.uogames.longProject.HW8
+package by.ocheretny.cyptorating.ui
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
