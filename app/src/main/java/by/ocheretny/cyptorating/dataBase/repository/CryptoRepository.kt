@@ -28,7 +28,6 @@ class CryptoRepository(
             daoData.updateData(data)
         }
 
-
     }
 
     suspend fun getAllData(): List<Data> {
