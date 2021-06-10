@@ -36,7 +36,7 @@ class ShowFragment : Fragment() {
 
         networkingViewModel.listingData.observe(requireActivity()) {
             val adapter =
-                it.data?.let { it1 -> CryptoRecycler(R.layout.item_crypto, it1) }
+                it.data?.let { it1 -> CryptoRecycler(R.layout.item_crypto, it1,networkingViewModel) }
             recycler.adapter = adapter
         }
 
