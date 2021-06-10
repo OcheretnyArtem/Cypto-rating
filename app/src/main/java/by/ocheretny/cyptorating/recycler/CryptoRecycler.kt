@@ -3,16 +3,17 @@ package com.uogames.longProject.HW8.recycler
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import by.ocheretny.cyptorating.R
 import com.squareup.picasso.Picasso
 import com.uogames.lesson23.recycler.SimpleRecyclerAdapter
 import com.uogames.lesson23.recycler.SimpleViewHolder
 import com.uogames.longProject.HW8.data.entities.currency.ListingData
-import com.uogames.longProject.R
 
 class CryptoRecycler(layout: Int, items: List<ListingData.Data>) :
     SimpleRecyclerAdapter<ListingData.Data, CryptoRecycler.CryptoViewHolder>(layout, items) {
 
     inner class CryptoViewHolder(view: View) : SimpleViewHolder<ListingData.Data>(view) {
+
         override fun setData(itemView: View, any: ListingData.Data) {
             val logo = itemView.findViewById<ImageView>(R.id.hw8_crypto_logo)
             val trend = itemView.findViewById<ImageView>(R.id.hw8_crypto_trend)
