@@ -48,7 +48,7 @@ class CryptoRecycler(layout: Int, items: List<ListingData.Data>, application: Ap
             }
 
             networkingViewModel.loadLatestFromName(any.id.toString(),"BYN"){
-                Log.e("TAG", it.toString())
+
             }
 
 
