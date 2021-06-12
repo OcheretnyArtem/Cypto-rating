@@ -1,6 +1,4 @@
-package by.ocheretny.cyptorating.data.entities.currency
-
-import com.google.gson.annotations.SerializedName
+package by.ocheretny.cyptorating.networking.data.entities.currency
 
 class LatestData(
     val `data`: Map<String, Data>?,
@@ -17,7 +15,7 @@ class LatestData(
         val maxSupply: Number?,
         val name: String?,
         val numMarketPairs: Number?,
-        val platform: Any?,
+        val platform: String?,
         val quote: Map<String, Quote>?,
         val slug: String?,
         val symbol: String?,

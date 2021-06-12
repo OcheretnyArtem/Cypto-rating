@@ -1,4 +1,4 @@
-package by.ocheretny.cyptorating.data.dto.currency
+package by.ocheretny.cyptorating.networking.data.dto.currency
 
 
 import com.google.gson.annotations.SerializedName
@@ -33,7 +33,7 @@ data class LatestDataResponse(
         @SerializedName("num_market_pairs")
         val numMarketPairs: Number?,
         @SerializedName("platform")
-        val platform: Any?,
+        val platform: String?,
         @SerializedName("quote")
         val quote: Map<String, Quote>?,
         @SerializedName("slug")

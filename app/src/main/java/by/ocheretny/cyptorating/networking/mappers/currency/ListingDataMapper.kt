@@ -1,6 +1,5 @@
 package com.uogames.longProject.HW8.mappers.currency
 
-import by.ocheretny.cyptorating.data.dto.currency.LatestDataResponse
 import com.uogames.longProject.HW8.data.dto.currency.ListingDataResponse
 import com.uogames.longProject.HW8.data.entities.currency.ListingData
 import com.uogames.longProject.HW8.mappers.Mapper

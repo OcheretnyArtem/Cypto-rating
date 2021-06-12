@@ -1,11 +1,10 @@
 package by.ocheretny.cyptorating.ui
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import by.ocheretny.cyptorating.data.entities.currency.LatestData
+import by.ocheretny.cyptorating.networking.data.entities.currency.LatestData
+import by.ocheretny.cyptorating.dataBase.entity.currency.Quote
 import by.ocheretny.cyptorating.repository.currency.CurrencyFreeRepository
 import com.uogames.longProject.HW8.data.entities.currency.ListingData
 import com.uogames.longProject.HW8.repository.currency.CurrencyRepository
@@ -18,6 +17,7 @@ class NetworkingViewModel : ViewModel() {
     private val repository = CurrencyRepository()
     private val freeRepository = CurrencyFreeRepository()
     private val scope = CoroutineScope(Dispatchers.IO)
+
 
 
     private val _listingData = MutableLiveData<ListingData>()
@@ -47,6 +47,12 @@ class NetworkingViewModel : ViewModel() {
         scope.launch {
             val result = freeRepository.loadDataFromId(id, convertId)
             launch(Dispatchers.Main) { block(result) }
+        }
+    }
+
+    fun update(id:String, convert:String, block: (Quote) -> Unit){
+        loadLatestFromName(id,convert){
+
         }
     }
 
