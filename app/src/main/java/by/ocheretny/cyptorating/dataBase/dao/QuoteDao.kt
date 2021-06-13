@@ -1,10 +1,12 @@
 package by.ocheretny.cyptorating.dataBase.dao
 
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 import by.ocheretny.cyptorating.dataBase.entity.currency.Quote
 
+@Dao
 interface QuoteDao {
 
     @Insert
@@ -13,6 +15,9 @@ interface QuoteDao {
     @Update
     suspend fun updateQuote(quote: Quote)
 
-    @Query("SELECT * FROM quote_table WHERE id = :id")
-    suspend fun getQuote(id: Number?) : Quote
+    @Query("SELECT * FROM quote_table WHERE nameData = :nameData AND nameQuote=:nameQuote")
+    suspend fun getQuote(nameData: String?, nameQuote: String): List<Quote>
+
+    @Query("SELECT * FROM quote_table WHERE nameData= :nameData")
+    suspend fun getQuote(nameData: String?): List<Quote>
 }

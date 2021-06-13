@@ -1,11 +1,11 @@
-package com.uogames.longProject.HW8.data.dto.currency
+package by.ocheretny.cyptorating.networking.data.dto.currency
 
 
 import com.google.gson.annotations.SerializedName
 
-data class ListingDataResponse(
+data class LatestDataResponse(
     @SerializedName("data")
-    val `data`: List<Data?>?,
+    val `data`: Map<String, Data>?,
     @SerializedName("status")
     val status: Status?
 ) {
@@ -18,6 +18,12 @@ data class ListingDataResponse(
         val dateAdded: String?,
         @SerializedName("id")
         val id: Number?,
+        @SerializedName("is_active")
+        val isActive: Number?,
+        @SerializedName("is_fiat")
+        val isFiat: Number?,
+        @SerializedName("is_market_cap_included_in_calc")
+        val isMarketCapIncludedInCalc: Number?,
         @SerializedName("last_updated")
         val lastUpdated: String?,
         @SerializedName("max_supply")
@@ -26,8 +32,6 @@ data class ListingDataResponse(
         val name: String?,
         @SerializedName("num_market_pairs")
         val numMarketPairs: Number?,
-        @SerializedName("platform")
-        val platform: Any?,
         @SerializedName("quote")
         val quote: Map<String, Quote>?,
         @SerializedName("slug")
@@ -61,7 +65,6 @@ data class ListingDataResponse(
             @SerializedName("volume_24h")
             val volume24h: Number?
         )
-
     }
 
     data class Status(
@@ -76,8 +79,6 @@ data class ListingDataResponse(
         @SerializedName("notice")
         val notice: Any?,
         @SerializedName("timestamp")
-        val timestamp: String?,
-        @SerializedName("total_count")
-        val totalCount: Number?
+        val timestamp: String?
     )
 }

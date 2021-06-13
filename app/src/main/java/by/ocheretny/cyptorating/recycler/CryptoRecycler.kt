@@ -1,21 +1,25 @@
-package by.ocheretny.cyptorating.recycler
+package com.uogames.longProject.HW8.recycler
 
+import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigator
 import by.ocheretny.cyptorating.R
+import by.ocheretny.cyptorating.dataBase.entity.currency.Data
+import by.ocheretny.cyptorating.ui.DataFragment
 import by.ocheretny.cyptorating.ui.NetworkingViewModel
 import com.squareup.picasso.Picasso
 import com.uogames.lesson23.recycler.SimpleRecyclerAdapter
 import com.uogames.lesson23.recycler.SimpleViewHolder
-import com.uogames.longProject.HW8.data.entities.currency.ListingData
 
-class CryptoRecycler(layout: Int, items: List<ListingData.Data>, val viewModel: NetworkingViewModel) :
-    SimpleRecyclerAdapter<ListingData.Data, CryptoRecycler.CryptoViewHolder>(layout, items) {
+class CryptoRecycler(layout: Int, items: List<Data>, val viewModel: NetworkingViewModel) :
+    SimpleRecyclerAdapter<Data, CryptoRecycler.CryptoViewHolder>(layout, items) {
 
-    inner class CryptoViewHolder(view: View) : SimpleViewHolder<ListingData.Data>(view) {
+    inner class CryptoViewHolder(view: View) : SimpleViewHolder<Data>(view) {
 
-        override fun setData(itemView: View, any: ListingData.Data) {
+        override fun setData(itemView: View, any: Data) {
             val logo = itemView.findViewById<ImageView>(R.id.hw8_crypto_logo)
             val trend = itemView.findViewById<ImageView>(R.id.hw8_crypto_trend)
             val cryptoName = itemView.findViewById<TextView>(R.id.hw8_crypto_name)
@@ -34,16 +38,16 @@ class CryptoRecycler(layout: Int, items: List<ListingData.Data>, val viewModel: 
             ).into(trend)
             cryptoName.text = any.name
 
-            any.quote?.forEach { k, v ->
-                cryptoPay.text = "$ " + v.price.toString()
-                cryptoChangePay.text = "24 hour: " + v.percentChange24h.toString() + "%"
+            viewModel.updateQuote(any.symbol ?: "BTC", "USD") {
+                cryptoPay.text = it.price.toString()
+                cryptoChangePay.text = it.percentChange1h.toString()
             }
 
-            viewModel.loadLatestFromName(any.id.toString(),"BYN"){
-
+            itemView.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putString(DataFragment.SYMBOL, any.symbol)
+                it.findNavController().navigate(R.id.show_info, bundle)
             }
-
-
         }
     }
 

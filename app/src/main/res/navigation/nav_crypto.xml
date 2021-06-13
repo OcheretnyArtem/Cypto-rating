@@ -2,10 +2,36 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_crypto"
-    app:startDestination="@id/showFragment">
+    app:startDestination="@id/show_selected">
 
     <fragment
         android:id="@+id/showFragment"
-        android:name="by.ocheretny.cyptorating.ui.ShowFragment"
-        android:label="ShowFragment" />
+        android:name="by.ocheretny.cyptorating.ui.ShowTopFragment"
+        android:label="ShowFragment" >
+        <action
+            android:id="@+id/action_showFragment_to_show_info"
+            app:destination="@id/show_info" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/show_selected"
+        android:name="by.ocheretny.cyptorating.ui.ShowSelectedFragment"
+        android:label="ShowFragment">
+        <action
+            android:id="@+id/action_show_selected_to_showFragment"
+            app:destination="@id/showFragment" />
+        <action
+            android:id="@+id/action_show_selected_to_show_info"
+            app:destination="@id/show_info" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/show_info"
+        android:name="by.ocheretny.cyptorating.ui.DataFragment"
+        >
+        <argument
+            android:name="SYMBOL"
+            app:argType="string"
+            android:defaultValue="BTC" />
+    </fragment>
 </navigation>

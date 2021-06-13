@@ -16,7 +16,7 @@ abstract class CryptoDataBase : RoomDatabase() {
     companion object {
         var INSTANCE: CryptoDataBase? = null
 
-        fun getCoffeeDataBase(context: Context): CryptoDataBase {
+        fun getINSTANCE(context: Context): CryptoDataBase {
             return if (INSTANCE == null) {
                 INSTANCE =
                     Room.databaseBuilder(context, CryptoDataBase::class.java, "database").build()

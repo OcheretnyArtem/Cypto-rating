@@ -36,6 +36,19 @@ class CryptoRepository(
         }.await()
     }
 
+    suspend fun getDataBySymbol(symbol: String): List<Data>{
+        return ioScope.async {
+            daoData.getDataBySymbol(symbol)
+        }.await()
+    }
+
+    suspend fun getDataByCategory(category: Long): List<Data>{
+        return ioScope.async {
+            daoData.getDataByCategory(category)
+        }.await()
+    }
+
+
     fun insertQuote(quote: Quote) {
         ioScope.launch {
             daoQuote.insertQuote(quote)
@@ -48,9 +61,15 @@ class CryptoRepository(
         }
     }
 
-    suspend fun getQuote(quote: Quote): Quote {
+    suspend fun getQuote(nameData: String, nameQuote: String): List<Quote> {
         return ioScope.async {
-            daoQuote.getQuote(quote.id)
+            daoQuote.getQuote(nameData, nameQuote)
+        }.await()
+    }
+
+    suspend fun getQuote(nameData: String): List<Quote> {
+        return ioScope.async {
+            daoQuote.getQuote(nameData)
         }.await()
     }
 }
