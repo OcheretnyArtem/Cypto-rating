@@ -55,34 +55,14 @@
         tools:text="1" />
 
     <TextView
-        android:id="@+id/crypto_date_added_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
-        android:text="@string/date_added"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@id/crypto_rank_text"
-        app:layout_constraintTop_toBottomOf="@id/crypto_rank_text" />
-
-    <TextView
-        android:id="@+id/crypto_date_added"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@id/crypto_date_added_text"
-        app:layout_constraintTop_toTopOf="@id/crypto_date_added_text"
-        tools:text="2013-04-28T00:00:00.000Z" />
-
-    <TextView
         android:id="@+id/max_supply_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
         android:text="@string/max_supply"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@id/crypto_date_added_text"
-        app:layout_constraintTop_toBottomOf="@id/crypto_date_added_text" />
+        app:layout_constraintStart_toStartOf="@id/crypto_rank_text"
+        app:layout_constraintTop_toBottomOf="@id/crypto_rank_text" />
 
     <TextView
         android:id="@+id/max_supply"
