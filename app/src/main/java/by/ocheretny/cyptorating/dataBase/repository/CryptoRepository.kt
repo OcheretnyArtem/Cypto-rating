@@ -66,4 +66,10 @@ class CryptoRepository(
             daoQuote.getQuote(nameData, nameQuote)
         }.await()
     }
+
+    suspend fun getQuote(nameData: String): List<Quote> {
+        return ioScope.async {
+            daoQuote.getQuote(nameData)
+        }.await()
+    }
 }

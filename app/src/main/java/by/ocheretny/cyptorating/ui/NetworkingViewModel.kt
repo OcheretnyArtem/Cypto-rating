@@ -58,6 +58,18 @@ class NetworkingViewModel(application: Application) : AndroidViewModel(applicati
         }
     }
 
+    fun loadQuotes(symbol: String, block: (List<Quote>) -> Unit) {
+        scope.launch {
+            var quotes = databaseRepository.getQuote(symbol)
+            launch(Dispatchers.Main) { block(quotes) }
+            quotes.forEach {
+                it.nameQuote?.let { it1 -> updateQuote(symbol, it1) {} }
+            }
+            quotes = databaseRepository.getQuote(symbol)
+            launch(Dispatchers.Main) { block(quotes) }
+        }
+    }
+
     fun updateTopCrypto(block: (List<Data>) -> Unit) {
         scope.launch {
             var listData = databaseRepository.getAllData()
@@ -80,17 +92,28 @@ class NetworkingViewModel(application: Application) : AndroidViewModel(applicati
         }
     }
 
-    fun loadSelectedCrypto(block: (List<Data>) -> Unit){
+    fun loadSelectedCrypto(symbol: String, block: (List<Data>) -> Unit) {
+        scope.launch {
+            var data = databaseRepository.getDataBySymbol(symbol)
+            launch(Dispatchers.Main) { block(data) }
+            updateQuote(symbol, "USD") {}
+            data = databaseRepository.getDataBySymbol(symbol)
+            launch(Dispatchers.Main) { block(data) }
+        }
+    }
+
+    fun loadSelectedCrypto(block: (List<Data>) -> Unit) {
         scope.launch {
             val data = databaseRepository.getDataByCategory(1)
             launch(Dispatchers.Main) { block(data) }
         }
     }
 
-    fun setDateCategory(data: Data){
+    fun setDateCategory(data: Data) {
         scope.launch {
             databaseRepository.updateData(data)
         }
     }
+
 
 }

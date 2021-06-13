@@ -1,18 +1,18 @@
 package com.uogames.longProject.HW8.recycler
 
-import android.app.Application
-import android.util.Log
+import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigator
 import by.ocheretny.cyptorating.R
 import by.ocheretny.cyptorating.dataBase.entity.currency.Data
+import by.ocheretny.cyptorating.ui.DataFragment
 import by.ocheretny.cyptorating.ui.NetworkingViewModel
 import com.squareup.picasso.Picasso
 import com.uogames.lesson23.recycler.SimpleRecyclerAdapter
 import com.uogames.lesson23.recycler.SimpleViewHolder
-import com.uogames.longProject.HW8.data.entities.currency.ListingData
 
 class CryptoRecycler(layout: Int, items: List<Data>, val viewModel: NetworkingViewModel) :
     SimpleRecyclerAdapter<Data, CryptoRecycler.CryptoViewHolder>(layout, items) {
@@ -38,11 +38,16 @@ class CryptoRecycler(layout: Int, items: List<Data>, val viewModel: NetworkingVi
             ).into(trend)
             cryptoName.text = any.name
 
-            viewModel.updateQuote(any.symbol ?: "BTC",  "BYN") {
+            viewModel.updateQuote(any.symbol ?: "BTC", "USD") {
                 cryptoPay.text = it.price.toString()
                 cryptoChangePay.text = it.percentChange1h.toString()
             }
 
+            itemView.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putString(DataFragment.SYMBOL, any.symbol)
+                it.findNavController().navigate(R.id.show_info, bundle)
+            }
         }
     }
 

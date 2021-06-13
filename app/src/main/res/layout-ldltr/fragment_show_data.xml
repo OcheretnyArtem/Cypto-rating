@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/image_crypto"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="7dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/crypto_symbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@id/image_crypto"
+        app:layout_constraintTop_toTopOf="@id/image_crypto"
+        tools:text="CryptoName" />
+
+    <TextView
+        android:id="@+id/crypto_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/image_crypto"
+        app:layout_constraintTop_toBottomOf="@id/crypto_symbol"
+        tools:text="Symbol" />
+
+    <TextView
+        android:id="@+id/crypto_rank_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="@string/rank"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/image_crypto"
+        app:layout_constraintTop_toBottomOf="@id/image_crypto" />
+
+    <TextView
+        android:id="@+id/crypto_rank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/crypto_rank_text"
+        app:layout_constraintTop_toTopOf="@id/crypto_rank_text"
+        tools:text="1" />
+
+    <TextView
+        android:id="@+id/crypto_date_added_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="@string/date_added"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/crypto_rank_text"
+        app:layout_constraintTop_toBottomOf="@id/crypto_rank_text" />
+
+    <TextView
+        android:id="@+id/crypto_date_added"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/crypto_date_added_text"
+        app:layout_constraintTop_toTopOf="@id/crypto_date_added_text"
+        tools:text="2013-04-28T00:00:00.000Z" />
+
+    <TextView
+        android:id="@+id/max_supply_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="@string/max_supply"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/crypto_date_added_text"
+        app:layout_constraintTop_toBottomOf="@id/crypto_date_added_text" />
+
+    <TextView
+        android:id="@+id/max_supply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/max_supply_text"
+        app:layout_constraintTop_toTopOf="@id/max_supply_text"
+        tools:text="21000000" />
+
+    <TextView
+        android:id="@+id/circulating_supply_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="@string/circulating_supply"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/max_supply_text"
+        app:layout_constraintTop_toBottomOf="@id/max_supply_text" />
+
+    <TextView
+        android:id="@+id/circulating_supply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/circulating_supply_text"
+        app:layout_constraintTop_toTopOf="@id/circulating_supply_text"
+        tools:text="18733143" />
+
+    <TextView
+        android:id="@+id/total_supply_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="@string/total_supply"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/circulating_supply_text"
+        app:layout_constraintTop_toBottomOf="@id/circulating_supply_text" />
+
+    <TextView
+        android:id="@+id/total_supply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/total_supply_text"
+        app:layout_constraintTop_toTopOf="@id/total_supply_text"
+        tools:text="18733143" />
+
+    <TextView
+        android:id="@+id/last_updated_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="@string/Last_updated"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/total_supply_text"
+        app:layout_constraintTop_toBottomOf="@id/total_supply_text" />
+
+    <TextView
+        android:id="@+id/last_updated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/last_updated_text"
+        app:layout_constraintTop_toTopOf="@id/last_updated_text"
+        tools:text="2021-06-12T16:47:02.000Z" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_quotes"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/last_updated"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
