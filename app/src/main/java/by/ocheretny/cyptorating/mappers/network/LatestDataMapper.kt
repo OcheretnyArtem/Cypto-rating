@@ -1,4 +1,4 @@
-package by.ocheretny.cyptorating.networking.mappers.currency
+package by.ocheretny.cyptorating.mappers.network
 
 import by.ocheretny.cyptorating.networking.data.dto.currency.LatestDataResponse
 import by.ocheretny.cyptorating.networking.data.entities.currency.LatestData
@@ -19,7 +19,6 @@ class LatestDataMapper : Mapper<LatestDataResponse, LatestData> {
                     maxSupply = it.value.maxSupply ?: -1,
                     name = it.value.name.orEmpty(),
                     numMarketPairs = it.value.numMarketPairs ?: -1,
-                    platform = it.value.platform ?: "null",
                     quote = HashMap<String, LatestData.Data.Quote>().apply {
                         it.value.quote?.forEach { k, v ->
                             put(

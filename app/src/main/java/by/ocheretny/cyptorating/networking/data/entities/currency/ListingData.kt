@@ -12,7 +12,6 @@ data class ListingData(
         val maxSupply: Number?,
         val name: String?,
         val numMarketPairs: Number?,
-        val platform: Any?,
         val quote: Map<String, Quote>?,
         val slug: String?,
         val symbol: String?,

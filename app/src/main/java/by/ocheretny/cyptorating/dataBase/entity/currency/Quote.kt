@@ -9,10 +9,8 @@ import androidx.room.PrimaryKey
     tableName = "quote_table"
 )
 data class Quote(
-    @PrimaryKey(autoGenerate = true)
-    var id: Int? = null,
-    @ColumnInfo(name = "name")
-    val name: String?,
+    @ColumnInfo(name = "nameData")
+    val nameData: String?,
     @ColumnInfo(name = "nameQuote")
     val nameQuote: String?,
     @ColumnInfo(name = "last_updated")
@@ -35,4 +33,7 @@ data class Quote(
     val price: Double?,
     @ColumnInfo(name = "volume_24h")
     val volume24h: Double?
-)
+){
+    @PrimaryKey(autoGenerate = true)
+    var id: Int? = null
+}

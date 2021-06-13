@@ -1,7 +1,7 @@
 package by.ocheretny.cyptorating.repository.currency
 
 import by.ocheretny.cyptorating.networking.data.entities.currency.LatestData
-import by.ocheretny.cyptorating.networking.mappers.currency.LatestDataMapper
+import by.ocheretny.cyptorating.mappers.network.LatestDataMapper
 import by.ocheretny.cyptorating.networking.currency.CurrencyFreeApi
 
 class CurrencyFreeRepository {

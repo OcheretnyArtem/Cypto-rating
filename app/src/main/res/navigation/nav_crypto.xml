@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/showFragment"
-        android:name="by.ocheretny.cyptorating.ui.ShowFragment"
+        android:name="by.ocheretny.cyptorating.ui.ShowTopFragment"
         android:label="ShowFragment" />
 </navigation>

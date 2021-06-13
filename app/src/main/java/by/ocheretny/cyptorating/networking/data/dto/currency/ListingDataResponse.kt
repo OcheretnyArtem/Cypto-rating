@@ -26,8 +26,6 @@ data class ListingDataResponse(
         val name: String?,
         @SerializedName("num_market_pairs")
         val numMarketPairs: Number?,
-        @SerializedName("platform")
-        val platform: Any?,
         @SerializedName("quote")
         val quote: Map<String, Quote>?,
         @SerializedName("slug")

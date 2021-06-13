@@ -21,7 +21,6 @@ class ListingDataMapper : Mapper<ListingDataResponse, ListingData> {
                         maxSupply = ld.maxSupply ?: -1,
                         name = ld.name.orEmpty(),
                         numMarketPairs = ld.numMarketPairs ?: -1,
-                        platform = ld.platform ?: "null",
                         quote = HashMap<String, ListingData.Data.Quote>().apply {
                             ld.quote?.forEach { k, v ->
                                 put(
@@ -39,7 +38,7 @@ class ListingDataMapper : Mapper<ListingDataResponse, ListingData> {
                                     )
                                 )
                             }
-                        }                        ,
+                        },
                         slug = ld.slug.orEmpty(),
                         symbol = ld.symbol.orEmpty(),
                         tags = ld.tags ?: ArrayList<String>(),

@@ -16,4 +16,10 @@ interface DataDao {
     @Query("SELECT * FROM crypto_table")
     suspend fun getAllData(): List<Data>
 
+
+    @Query("SELECT * FROM crypto_table WHERE symbol = :symbol")
+    fun getDataBySymbol(symbol: String): List<Data>
+
+    @Query("SELECT * FROM crypto_table WHERE category = :category")
+    fun getDataByCategory(category: Long): List<Data>
 }

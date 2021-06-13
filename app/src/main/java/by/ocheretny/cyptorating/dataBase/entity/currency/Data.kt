@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "crypto_table")
 data class Data(
     @PrimaryKey(autoGenerate = false)
-    var id: Int? = null,
+    val id: Int? = null,
     @ColumnInfo(name = "circulating_supply")
     val circulatingSupply: Long?,
     @ColumnInfo(name = "cmc_rank")
@@ -20,12 +20,12 @@ data class Data(
     val name: String?,
     @ColumnInfo(name = "num_market_pairs")
     val numMarketPairs: Long?,
-    @ColumnInfo(name = "platform")
-    val platform: String?,
     @ColumnInfo(name = "slug")
     val slug: String?,
     @ColumnInfo(name = "symbol")
     val symbol: String?,
     @ColumnInfo(name = "total_supply")
-    val totalSupply: Long?
+    val totalSupply: Long?,
+    @ColumnInfo(name = "category")
+    var category: Long? = 0
 )

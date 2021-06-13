@@ -15,6 +15,6 @@ interface QuoteDao {
     @Update
     suspend fun updateQuote(quote: Quote)
 
-    @Query("SELECT * FROM quote_table WHERE id = :id")
-    suspend fun getQuote(id: Int?) : Quote
+    @Query("SELECT * FROM quote_table WHERE nameData = :nameData AND nameQuote=:nameQuote")
+    suspend fun getQuote(nameData: String?, nameQuote: String) : List<Quote>
 }

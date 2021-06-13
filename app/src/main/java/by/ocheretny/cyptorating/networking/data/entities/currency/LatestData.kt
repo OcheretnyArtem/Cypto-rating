@@ -15,7 +15,6 @@ class LatestData(
         val maxSupply: Number?,
         val name: String?,
         val numMarketPairs: Number?,
-        val platform: String?,
         val quote: Map<String, Quote>?,
         val slug: String?,
         val symbol: String?,
