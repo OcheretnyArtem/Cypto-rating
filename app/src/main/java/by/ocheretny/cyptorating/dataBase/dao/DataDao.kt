@@ -13,7 +13,7 @@ interface DataDao {
     @Update
     suspend fun updateData(Data: Data)
 
-    @Query("SELECT * FROM crypto_table")
+    @Query("SELECT * FROM crypto_table ORDER BY cmc_rank ASC")
     suspend fun getAllData(): List<Data>
 
 
