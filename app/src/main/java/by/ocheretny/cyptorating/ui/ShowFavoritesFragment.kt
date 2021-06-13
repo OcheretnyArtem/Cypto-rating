@@ -12,9 +12,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import by.ocheretny.cyptorating.R
-import com.uogames.longProject.HW8.recycler.CryptoRecycler
+import by.ocheretny.cyptorating.recycler.CryptoRecycler
 
-class ShowSelectedFragment : Fragment() {
+class ShowFavoritesFragment : Fragment() {
 
     private val networkingViewModel by lazy {
         ViewModelProvider.AndroidViewModelFactory(requireActivity().application)
@@ -39,9 +39,11 @@ class ShowSelectedFragment : Fragment() {
         eSearch = view.findViewById(R.id.search_input_text)
 
         networkingViewModel.loadSelectedCrypto {
-            val adapter = CryptoRecycler(R.layout.item_crypto, it, networkingViewModel)
-            recycler.adapter = adapter
-            recycler.refreshDrawableState()
+            if (!it.isNullOrEmpty()) {
+                val adapter = CryptoRecycler(R.layout.item_crypto, it, networkingViewModel)
+                recycler.adapter = adapter
+                recycler.refreshDrawableState()
+            }
         }
         toolbar.setOnMenuItemClickListener {
             when (it.itemId) {

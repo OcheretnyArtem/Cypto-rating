@@ -36,15 +36,21 @@ class CryptoRepository(
         }.await()
     }
 
-    suspend fun getDataBySymbol(symbol: String): List<Data>{
+    suspend fun getDataBySymbol(symbol: String): List<Data> {
         return ioScope.async {
             daoData.getDataBySymbol(symbol)
         }.await()
     }
 
-    suspend fun getDataByCategory(category: Long): List<Data>{
+    suspend fun getDataByCategory(category: Long): List<Data> {
         return ioScope.async {
             daoData.getDataByCategory(category)
+        }.await()
+    }
+
+    suspend fun getFavData(): List<Data> {
+        return ioScope.async {
+            daoData.getFavData(true)
         }.await()
     }
 

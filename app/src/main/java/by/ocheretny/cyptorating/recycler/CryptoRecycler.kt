@@ -1,11 +1,10 @@
-package com.uogames.longProject.HW8.recycler
+package by.ocheretny.cyptorating.recycler
 
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.FragmentNavigator
 import by.ocheretny.cyptorating.R
 import by.ocheretny.cyptorating.dataBase.entity.currency.Data
 import by.ocheretny.cyptorating.ui.DataFragment
@@ -46,7 +45,7 @@ class CryptoRecycler(layout: Int, items: List<Data>, val viewModel: NetworkingVi
             itemView.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putString(DataFragment.SYMBOL, any.symbol)
-                it.findNavController().navigate(R.id.show_info, bundle)
+                it.findNavController().navigate(R.id.tryBottomSheet, bundle)
             }
         }
     }

@@ -8,7 +8,8 @@ import by.ocheretny.cyptorating.ui.NetworkingViewModel
 import com.uogames.lesson23.recycler.SimpleRecyclerAdapter
 import com.uogames.lesson23.recycler.SimpleViewHolder
 
-class QuoteRecycler(layout: Int, items:List<Quote>, val networkingViewModel: NetworkingViewModel) : SimpleRecyclerAdapter<Quote, QuoteRecycler.QuoteHolder> (layout, items){
+class QuoteRecycler(layout: Int, items: List<Quote>, val networkingViewModel: NetworkingViewModel) :
+    SimpleRecyclerAdapter<Quote, QuoteRecycler.QuoteHolder>(layout, items) {
 
     inner class QuoteHolder(view: View) : SimpleViewHolder<Quote>(view) {
         override fun setData(itemView: View, any: Quote) {
@@ -25,29 +26,29 @@ class QuoteRecycler(layout: Int, items:List<Quote>, val networkingViewModel: Net
             val lastUpdated = itemView.findViewById<TextView>(R.id.last_updated)
 
             quoteName.text = any.nameQuote
-            price.text = any.price.toString()
-            volume24h.text = any.volume24h.toString()
-            percentChange1h.text = any.percentChange1h.toString()
-            percentChange24h.text = any.percentChange24h.toString()
-            percentChange7d.text = any.percentChange7d.toString()
-            percentChange30d.text = any.percentChange30d.toString()
-            percentChange60d.text = any.percentChange60d.toString()
-            percentChange90d.text = any.percentChange90d.toString()
+            price.text = String.format("%.4f",any.price)
+            volume24h.text = String.format("%.6f",any.volume24h)
+            percentChange1h.text =  String.format("%.3f",any.percentChange1h)
+            percentChange24h.text = String.format("%.3f",any.percentChange24h)
+            percentChange7d.text = String.format("%.3f",any.percentChange7d)
+            percentChange30d.text = String.format("%.3f",any.percentChange30d)
+            percentChange60d.text = String.format("%.3f",any.percentChange60d)
+            percentChange90d.text = String.format("%.3f",any.percentChange90d)
             marketCap.text = any.marketCap.toString()
             lastUpdated.text = any.lastUpdated.toString()
 
             any.nameData?.let {
                 any.nameQuote?.let { it1 ->
-                    networkingViewModel.updateQuote(it, it1){
+                    networkingViewModel.updateQuote(it, it1) {
                         quoteName.text = it.nameQuote
                         price.text = it.price.toString()
                         volume24h.text = it.volume24h.toString()
-                        percentChange1h.text = it.percentChange1h.toString()
-                        percentChange24h.text = it.percentChange24h.toString()
-                        percentChange7d.text = it.percentChange7d.toString()
-                        percentChange30d.text = it.percentChange30d.toString()
-                        percentChange60d.text = it.percentChange60d.toString()
-                        percentChange90d.text = it.percentChange90d.toString()
+                        percentChange1h.text = String.format("%.3f", it.percentChange1h)
+                        percentChange24h.text = String.format("%.3f",it.percentChange24h)
+                        percentChange7d.text = String.format("%.3f",it.percentChange7d)
+                        percentChange30d.text = String.format("%.3f",it.percentChange30d)
+                        percentChange60d.text = String.format("%.3f",it.percentChange60d)
+                        percentChange90d.text = String.format("%.3f",it.percentChange90d)
                         marketCap.text = it.marketCap.toString()
                         lastUpdated.text = it.lastUpdated.toString()
                     }

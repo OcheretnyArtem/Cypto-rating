@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import by.ocheretny.cyptorating.R
-import com.uogames.longProject.HW8.recycler.CryptoRecycler
+import by.ocheretny.cyptorating.recycler.CryptoRecycler
 
 class ShowTopFragment : Fragment() {
 
