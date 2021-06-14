@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bottom_sheet_shape"
     app:behavior_hideable="false"
-    app:behavior_peekHeight="60dp"
+    app:behavior_peekHeight="50dp"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
     <androidx.recyclerview.widget.RecyclerView

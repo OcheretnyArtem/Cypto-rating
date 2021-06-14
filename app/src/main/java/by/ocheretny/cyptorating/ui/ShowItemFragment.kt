@@ -1,6 +1,7 @@
 package by.ocheretny.cyptorating.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import by.ocheretny.cyptorating.R
 import by.ocheretny.cyptorating.recycler.QuoteRecycler
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.switchmaterial.SwitchMaterial
 import com.squareup.picasso.Picasso
 
 class ShowItemFragment : Fragment() {
@@ -37,10 +39,6 @@ class ShowItemFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
-        //val fragment = ShowFavoritesFragment()
-        //val transaction = childFragmentManager.beginTransaction()
-        //transaction.replace(R.id.fragment_conteiner, fragment).commit()
-
 
         bottomSheet = BottomSheetBehavior.from(view.findViewById(R.id.bottom_sheet))
         bottomSheet.isFitToContents = false
@@ -56,7 +54,7 @@ class ShowItemFragment : Fragment() {
         val totalSupply = view.findViewById<TextView>(R.id.total_supply)
         val lastUpdated = view.findViewById<TextView>(R.id.last_updated)
         val recycler = view.findViewById<RecyclerView>(R.id.bottom_sheet_recycler)
-
+        val switch = view.findViewById<SwitchMaterial>(R.id.switch_is_fav)
 
         val string = arguments?.getString(SYMBOL)
         if (string != null) {
@@ -86,6 +84,22 @@ class ShowItemFragment : Fragment() {
                             recycler.adapter =
                                 QuoteRecycler(R.layout.item_quotes, list, networkingViewModel)
                         }
+                    }
+
+                    data.category?.let {
+                        switch.isChecked = it == 1L
+                    }
+
+                    switch.setOnCheckedChangeListener { _, isChecked ->
+                        Log.e("TAG", isChecked.toString())
+                        if (isChecked) {
+                            data.category = 1
+                            networkingViewModel.setDateCategory(data)
+                        } else {
+                            data.category = 0
+                            networkingViewModel.setDateCategory(data)
+                        }
+
                     }
                 }
             }

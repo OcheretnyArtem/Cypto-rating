@@ -39,9 +39,7 @@ class NetworkingViewModel(application: Application) : AndroidViewModel(applicati
                 val data = databaseRepository.getDataBySymbol(it.key)
                 val tData = LatestDataMapper().map(it.value)
                 if (data.isNotEmpty()) {
-                    databaseRepository.updateData(tData.apply {
-                        category = data[0].category
-                    })
+                    updateData(data[0],tData)
                 } else {
                     databaseRepository.insertData(tData)
                 }
@@ -81,9 +79,7 @@ class NetworkingViewModel(application: Application) : AndroidViewModel(applicati
                 val d = ListingDataMapper().map(it)
                 val dat = it.symbol?.let { it1 -> databaseRepository.getDataBySymbol(it1) }
                 if (dat?.size != 0) {
-                    databaseRepository.updateData(d.apply {
-                        category = dat?.get(0)?.category
-                    })
+                    dat?.get(0)?.let { it1 -> updateData(it1,d) }
                 } else {
                     databaseRepository.insertData(d)
                 }
@@ -104,6 +100,11 @@ class NetworkingViewModel(application: Application) : AndroidViewModel(applicati
             data = databaseRepository.getDataBySymbol(symbol)
             launch(Dispatchers.Main) { block(data) }
         }
+    }
+
+    private fun updateData(firstData:Data, secondData:Data){
+        secondData.category = firstData.category
+        databaseRepository.updateData(secondData)
     }
 
     fun loadSelectedCrypto(block: (List<Data>) -> Unit) {

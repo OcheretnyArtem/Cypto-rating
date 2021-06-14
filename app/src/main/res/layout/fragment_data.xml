@@ -6,6 +6,25 @@
     android:layout_height="match_parent"
     android:background="@color/grey">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/tool_bar"
+        style="@style/TextAppearance.MaterialComponents.Headline1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/quotes_menu"
+        app:title="Quotes">
+
+        <EditText
+            android:id="@+id/search_input_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="search"
+            android:maxLines="1"
+            android:visibility="gone" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
     <ImageView
         android:id="@+id/image_crypto"
         android:layout_width="100dp"
@@ -25,7 +44,7 @@
         android:layout_marginTop="50dp"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@id/image_crypto"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tool_bar"
         tools:text="CryptoName" />
 
     <TextView
@@ -142,5 +161,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/last_updated" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switch_is_fav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/favorite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/crypto_symbol" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
