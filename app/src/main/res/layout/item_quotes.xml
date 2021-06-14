@@ -3,23 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:elevation="4dp">
 
     <TextView
         android:id="@+id/quote_name"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"
+        android:layout_height="60dp"
+        android:text="@string/quote_symbol"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="@string/quote_symbol" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/price_text"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/quote_name"
         android:text="@string/price" />
@@ -28,18 +30,17 @@
         android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@id/price_text"
         app:layout_constraintTop_toTopOf="@id/price_text"
         tools:text="Quote symbol" />
 
     <TextView
         android:id="@+id/volume_24h_text"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/price_text"
         android:text="@string/volume_24h" />
@@ -48,18 +49,17 @@
         android:id="@+id/volume_24h"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@id/volume_24h_text"
         app:layout_constraintTop_toTopOf="@id/volume_24h_text"
         tools:text="Quote symbol" />
 
     <TextView
         android:id="@+id/percent_change_1h_text"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/volume_24h_text"
         android:text="@string/percent_change_1h" />
@@ -68,18 +68,17 @@
         android:id="@+id/percent_change_1h"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@id/percent_change_1h_text"
         app:layout_constraintTop_toTopOf="@id/percent_change_1h_text"
         tools:text="Quote symbol" />
 
     <TextView
         android:id="@+id/percent_change_24h_text"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/percent_change_1h_text"
         android:text="@string/percent_change_24h" />
@@ -88,18 +87,17 @@
         android:id="@+id/percent_change_24h"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@id/percent_change_24h_text"
         app:layout_constraintTop_toTopOf="@id/percent_change_24h_text"
         tools:text="Quote symbol" />
 
     <TextView
         android:id="@+id/percent_change_7d_text"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/percent_change_24h_text"
         android:text="@string/percent_change_7d" />
@@ -108,18 +106,17 @@
         android:id="@+id/percent_change_7d"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@id/percent_change_7d_text"
         app:layout_constraintTop_toTopOf="@id/percent_change_7d_text"
         tools:text="Quote symbol" />
 
     <TextView
         android:id="@+id/percent_change_30d_text"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/percent_change_7d_text"
         android:text="@string/percent_change_30d" />
@@ -128,8 +125,7 @@
         android:id="@+id/percent_change_30d"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@id/percent_change_30d_text"
         app:layout_constraintTop_toTopOf="@id/percent_change_30d_text"
         tools:text="Quote symbol" />
@@ -137,10 +133,10 @@
 
     <TextView
         android:id="@+id/percent_change_60d_text"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/percent_change_30d_text"
         android:text="@string/percent_change_60d" />
@@ -149,18 +145,17 @@
         android:id="@+id/percent_change_60d"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@id/percent_change_60d_text"
         app:layout_constraintTop_toTopOf="@id/percent_change_60d_text"
         tools:text="Quote symbol" />
 
     <TextView
         android:id="@+id/percent_change_90d_text"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/percent_change_60d_text"
         android:text="@string/percent_change_90d" />
@@ -169,18 +164,17 @@
         android:id="@+id/percent_change_90d"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@id/percent_change_90d_text"
         app:layout_constraintTop_toTopOf="@id/percent_change_90d_text"
         tools:text="Quote symbol" />
 
     <TextView
         android:id="@+id/market_cap_text"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/percent_change_90d_text"
         android:text="@string/market_cap" />
@@ -189,8 +183,7 @@
         android:id="@+id/market_cap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@id/market_cap_text"
         app:layout_constraintTop_toTopOf="@id/market_cap_text"
         tools:text="Quote symbol" />
@@ -200,7 +193,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/market_cap_text"
         android:text="@string/Last_updated" />
@@ -209,8 +202,8 @@
         android:id="@+id/last_updated"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:textSize="20sp"
+        android:layout_marginHorizontal="@dimen/standard_margin"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@id/last_updated_text"
         app:layout_constraintTop_toTopOf="@id/last_updated_text"
         tools:text="Quote symbol" />

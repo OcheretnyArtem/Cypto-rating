@@ -2,33 +2,33 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_crypto"
-    app:startDestination="@id/show_selected">
+    app:startDestination="@id/ShowFavoritesFragment">
 
     <fragment
-        android:id="@+id/showFragment"
-        android:name="by.ocheretny.cyptorating.ui.ShowTopFragment"
+        android:id="@+id/ShowTop100Fragment"
+        android:name="by.ocheretny.cyptorating.ui.ShowTop100Fragment"
         android:label="ShowFragment" >
         <action
-            android:id="@+id/action_showFragment_to_show_info"
-            app:destination="@id/show_info" />
+            android:id="@+id/action_showFragment_to_tryBottomSheet"
+            app:destination="@id/ShowItemFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/show_selected"
-        android:name="by.ocheretny.cyptorating.ui.ShowSelectedFragment"
+        android:id="@+id/ShowFavoritesFragment"
+        android:name="by.ocheretny.cyptorating.ui.ShowFavoritesFragment"
         android:label="ShowFragment">
         <action
             android:id="@+id/action_show_selected_to_showFragment"
-            app:destination="@id/showFragment" />
+            app:destination="@id/ShowTop100Fragment" />
         <action
-            android:id="@+id/action_show_selected_to_show_info"
-            app:destination="@id/show_info" />
+            android:id="@+id/action_show_selected_to_tryBottomSheet"
+            app:destination="@id/ShowItemFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/show_info"
-        android:name="by.ocheretny.cyptorating.ui.DataFragment"
-        >
+        android:id="@+id/ShowItemFragment"
+        android:name="by.ocheretny.cyptorating.ui.ShowItemFragment"
+        android:label="TryBottomSheet">
         <argument
             android:name="SYMBOL"
             app:argType="string"

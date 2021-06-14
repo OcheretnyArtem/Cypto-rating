@@ -8,9 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import by.ocheretny.cyptorating.R
-import com.uogames.longProject.HW8.recycler.CryptoRecycler
+import by.ocheretny.cyptorating.recycler.CryptoRecycler
 
-class ShowTopFragment : Fragment() {
+class ShowTop100Fragment : Fragment() {
 
     private val networkingViewModel by lazy {
         ViewModelProvider.AndroidViewModelFactory(requireActivity().application)
@@ -22,7 +22,7 @@ class ShowTopFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_show, container, false)
+        return inflater.inflate(R.layout.fragment_show_top_100, container, false)
 
     }
 
