@@ -37,9 +37,9 @@ class ShowItemFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
-        val fragment = ShowFavoritesFragment()
-        val transaction = childFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_conteiner, fragment).commit()
+        //val fragment = ShowFavoritesFragment()
+        //val transaction = childFragmentManager.beginTransaction()
+        //transaction.replace(R.id.fragment_conteiner, fragment).commit()
 
 
         bottomSheet = BottomSheetBehavior.from(view.findViewById(R.id.bottom_sheet))

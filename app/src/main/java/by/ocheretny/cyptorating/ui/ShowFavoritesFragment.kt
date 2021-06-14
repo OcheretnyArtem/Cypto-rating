@@ -1,6 +1,7 @@
 package by.ocheretny.cyptorating.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,21 +35,14 @@ class ShowFavoritesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val recycler = view.findViewById<RecyclerView>(R.id.crypto_recycler)
+        val recycler = view.findViewById<RecyclerView>(R.id.fav_crypto_recycler)
         val toolbar = view.findViewById<Toolbar>(R.id.tool_bar)
         eSearch = view.findViewById(R.id.search_input_text)
 
-
-
         networkingViewModel.loadSelectedCrypto{
-            if (!it.isNullOrEmpty()) {
-                it.filter {data ->
-                    data.isFav
-                }
                 val adapter = CryptoRecycler(R.layout.item_crypto, it, networkingViewModel)
+                Log.e("TAG" , recycler.toString())
                 recycler.adapter = adapter
-                recycler.refreshDrawableState()
-            }
         }
 
         toolbar.setOnMenuItemClickListener {

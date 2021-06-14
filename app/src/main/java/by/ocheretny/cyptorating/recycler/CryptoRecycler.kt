@@ -1,6 +1,7 @@
 package by.ocheretny.cyptorating.recycler
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -26,6 +27,13 @@ class CryptoRecycler(layout: Int, items: List<Data>, val viewModel: NetworkingVi
             val cryptoChangePay = itemView.findViewById<TextView>(R.id.hw8_change_pay)
             val switch = itemView.findViewById<SwitchMaterial>(R.id.switch_is_fav)
 
+            any.category?.let {
+                if (it == 1L) {
+                    Log.e("TAG", it.toString())
+                    switch.isChecked = true
+                }
+            }
+
             Picasso.get().load(
                 itemView.context.getString(R.string.link_get_logo_crypto) + any.id + itemView.context.getString(
                     R.string.png_format
@@ -39,11 +47,13 @@ class CryptoRecycler(layout: Int, items: List<Data>, val viewModel: NetworkingVi
             }
 
             switch.setOnCheckedChangeListener { _, isChecked ->
+                Log.e("TAG", isChecked.toString())
                 if (isChecked) {
-                    any.isFav = true
+                    any.category = 1
                     viewModel.setDateCategory(any)
+
                 } else {
-                    any.isFav = false
+                    any.category = 0
                     viewModel.setDateCategory(any)
                 }
 

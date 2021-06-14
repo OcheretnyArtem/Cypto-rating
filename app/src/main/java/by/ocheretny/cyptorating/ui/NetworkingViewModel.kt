@@ -39,7 +39,9 @@ class NetworkingViewModel(application: Application) : AndroidViewModel(applicati
                 val data = databaseRepository.getDataBySymbol(it.key)
                 val tData = LatestDataMapper().map(it.value)
                 if (data.isNotEmpty()) {
-                    databaseRepository.updateData(tData)
+                    databaseRepository.updateData(tData.apply {
+                        category = data[0].category
+                    })
                 } else {
                     databaseRepository.insertData(tData)
                 }
@@ -79,7 +81,9 @@ class NetworkingViewModel(application: Application) : AndroidViewModel(applicati
                 val d = ListingDataMapper().map(it)
                 val dat = it.symbol?.let { it1 -> databaseRepository.getDataBySymbol(it1) }
                 if (dat?.size != 0) {
-                    databaseRepository.updateData(d)
+                    databaseRepository.updateData(d.apply {
+                        category = dat?.get(0)?.category
+                    })
                 } else {
                     databaseRepository.insertData(d)
                 }
