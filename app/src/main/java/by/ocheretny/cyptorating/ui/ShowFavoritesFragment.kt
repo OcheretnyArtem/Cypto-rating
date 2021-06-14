@@ -38,13 +38,19 @@ class ShowFavoritesFragment : Fragment() {
         val toolbar = view.findViewById<Toolbar>(R.id.tool_bar)
         eSearch = view.findViewById(R.id.search_input_text)
 
-        networkingViewModel.loadSelectedCrypto {
+
+
+        networkingViewModel.loadSelectedCrypto{
             if (!it.isNullOrEmpty()) {
+                it.filter {data ->
+                    data.isFav
+                }
                 val adapter = CryptoRecycler(R.layout.item_crypto, it, networkingViewModel)
                 recycler.adapter = adapter
                 recycler.refreshDrawableState()
             }
         }
+
         toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.top_100 -> {

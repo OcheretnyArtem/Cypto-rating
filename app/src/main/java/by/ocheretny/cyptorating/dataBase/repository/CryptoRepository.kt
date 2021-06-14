@@ -30,6 +30,12 @@ class CryptoRepository(
 
     }
 
+    suspend fun find(string: String): List<Data>{
+        return ioScope.async {
+            daoData.find(string)
+        }.await()
+    }
+
     suspend fun getAllData(): List<Data> {
         return ioScope.async {
             daoData.getAllData()

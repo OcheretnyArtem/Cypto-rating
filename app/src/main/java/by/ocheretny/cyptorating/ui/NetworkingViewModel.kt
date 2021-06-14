@@ -1,20 +1,17 @@
 package by.ocheretny.cyptorating.ui
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import by.ocheretny.cyptorating.dataBase.CryptoDataBase
 import by.ocheretny.cyptorating.dataBase.entity.currency.Data
-import by.ocheretny.cyptorating.networking.data.entities.currency.LatestData
 import by.ocheretny.cyptorating.dataBase.entity.currency.Quote
 import by.ocheretny.cyptorating.dataBase.repository.CryptoRepository
 import by.ocheretny.cyptorating.mappers.database.LatestDataMapper
 import by.ocheretny.cyptorating.mappers.database.LatestQuoteMapper
 import by.ocheretny.cyptorating.mappers.database.ListingDataMapper
 import by.ocheretny.cyptorating.repository.currency.CurrencyFreeRepository
-import com.uogames.longProject.HW8.data.entities.currency.ListingData
 import com.uogames.longProject.HW8.repository.currency.CurrencyRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -26,6 +23,9 @@ class NetworkingViewModel(application: Application) : AndroidViewModel(applicati
     private val freeRepository = CurrencyFreeRepository()
     private val databaseRepository = CryptoRepository(CryptoDataBase.getINSTANCE(application));
     private val scope = CoroutineScope(Dispatchers.IO)
+
+    private val _soughtList = MutableLiveData<List<Data>>()
+    val soughtList: LiveData<List<Data>> = _soughtList
 
     fun updateQuote(nameData: String, convert: String, block: (Quote) -> Unit) {
         scope.launch {
@@ -106,6 +106,13 @@ class NetworkingViewModel(application: Application) : AndroidViewModel(applicati
         scope.launch {
             val data = databaseRepository.getDataByCategory(1)
             launch(Dispatchers.Main) { block(data) }
+        }
+    }
+
+    fun find(string: String) {
+        scope.launch {
+            val dataList = databaseRepository.find(string)
+            _soughtList.postValue(dataList)
         }
     }
 
