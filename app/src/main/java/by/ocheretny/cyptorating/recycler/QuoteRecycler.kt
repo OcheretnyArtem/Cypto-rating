@@ -41,8 +41,8 @@ class QuoteRecycler(layout: Int, items: List<Quote>, val networkingViewModel: Ne
                 any.nameQuote?.let { it1 ->
                     networkingViewModel.updateQuote(it, it1) {
                         quoteName.text = it.nameQuote
-                        price.text = it.price.toString()
-                        volume24h.text = it.volume24h.toString()
+                        price.text = String.format("%.3f", it.price)
+                        volume24h.text = String.format("%.3f", it.volume24h)
                         percentChange1h.text = String.format("%.3f", it.percentChange1h)
                         percentChange24h.text = String.format("%.3f",it.percentChange24h)
                         percentChange7d.text = String.format("%.3f",it.percentChange7d)

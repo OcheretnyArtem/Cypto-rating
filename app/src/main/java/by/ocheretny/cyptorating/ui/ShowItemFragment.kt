@@ -14,8 +14,11 @@ import by.ocheretny.cyptorating.recycler.QuoteRecycler
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.squareup.picasso.Picasso
 
-class TryBottomSheet : Fragment() {
+class ShowItemFragment : Fragment() {
 
+    companion object {
+        const val SYMBOL = "SYMBOL"
+    }
 
     private val networkingViewModel by lazy {
         ViewModelProvider.AndroidViewModelFactory(requireActivity().application)
@@ -28,10 +31,11 @@ class TryBottomSheet : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.tryy, container, false)
+        return inflater.inflate(R.layout.fragment_show_item, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         super.onViewCreated(view, savedInstanceState)
         val fragment = ShowFavoritesFragment()
         val transaction = childFragmentManager.beginTransaction()
@@ -54,7 +58,7 @@ class TryBottomSheet : Fragment() {
         val recycler = view.findViewById<RecyclerView>(R.id.bottom_sheet_recycler)
 
 
-        val string = arguments?.getString(DataFragment.SYMBOL)
+        val string = arguments?.getString(SYMBOL)
         if (string != null) {
             networkingViewModel.loadSelectedCrypto(string) {
                 if (it.isNotEmpty()) {
