@@ -24,4 +24,7 @@ interface DataDao {
 
     @Query("SELECT * FROM crypto_table WHERE is_fav = :isFav")
     fun getFavData(isFav: Boolean): List<Data>
+
+    @Query("SELECT * FROM crypto_table WHERE name || symbol LIKE '%' || :string ||'%'")
+    suspend fun find(string: String): List<Data>
 }

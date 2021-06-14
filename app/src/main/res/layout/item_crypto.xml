@@ -24,7 +24,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/standard_margin"
         android:textSize="@dimen/hw2_text_size"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/hw8_crypto_logo"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Crypto Name" />
@@ -50,6 +49,15 @@
         android:text=""
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switch_is_fav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/favorite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/hw8_crypto_name" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,7 @@ import by.ocheretny.cyptorating.R
 import by.ocheretny.cyptorating.dataBase.entity.currency.Data
 import by.ocheretny.cyptorating.ui.NetworkingViewModel
 import by.ocheretny.cyptorating.ui.ShowItemFragment
+import com.google.android.material.switchmaterial.SwitchMaterial
 import com.squareup.picasso.Picasso
 import com.uogames.lesson23.recycler.SimpleRecyclerAdapter
 import com.uogames.lesson23.recycler.SimpleViewHolder
@@ -23,6 +24,7 @@ class CryptoRecycler(layout: Int, items: List<Data>, val viewModel: NetworkingVi
             val cryptoName = itemView.findViewById<TextView>(R.id.hw8_crypto_name)
             val cryptoPay = itemView.findViewById<TextView>(R.id.hw8_pay_usd)
             val cryptoChangePay = itemView.findViewById<TextView>(R.id.hw8_change_pay)
+            val switch = itemView.findViewById<SwitchMaterial>(R.id.switch_is_fav)
 
             Picasso.get().load(
                 itemView.context.getString(R.string.link_get_logo_crypto) + any.id + itemView.context.getString(
@@ -34,6 +36,17 @@ class CryptoRecycler(layout: Int, items: List<Data>, val viewModel: NetworkingVi
             viewModel.updateQuote(any.symbol ?: "BTC", "USD") {
                 cryptoPay.text = String.format("%.3f", it.price)
                 cryptoChangePay.text = String.format("%.3f", it.percentChange1h)
+            }
+
+            switch.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    any.isFav = true
+                    viewModel.setDateCategory(any)
+                } else {
+                    any.isFav = false
+                    viewModel.setDateCategory(any)
+                }
+
             }
 
             itemView.setOnClickListener {

@@ -21,6 +21,7 @@
     <string name="market_cap">Market cap</string>
     <string name="top_100">Top 100</string>
     <string name="search">search</string>
+    <string name="favorite">Favorite</string>
     <array name="list_currency_code">
         <item>UAH</item>
         <item>USD</item>

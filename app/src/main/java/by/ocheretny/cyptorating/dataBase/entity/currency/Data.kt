@@ -9,7 +9,7 @@ data class Data(
     @PrimaryKey(autoGenerate = false)
     val id: Int? = null,
     @ColumnInfo(name = "is_fav")
-    val isFav: Boolean = false,
+    var isFav: Boolean = false,
     @ColumnInfo(name = "circulating_supply")
     val circulatingSupply: Long?,
     @ColumnInfo(name = "cmc_rank")
