@@ -22,6 +22,7 @@
     <string name="top_100">Top 100</string>
     <string name="search">search</string>
     <string name="favorite">Favorite</string>
+    <string name="add_quote">add quote</string>
     <array name="list_currency_code">
         <item>UAH</item>
         <item>USD</item>

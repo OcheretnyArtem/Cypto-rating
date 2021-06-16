@@ -10,7 +10,7 @@
         android:label="ShowFragment" >
         <action
             android:id="@+id/action_showFragment_to_tryBottomSheet"
-            app:destination="@id/ShowItemFragment" />
+            app:destination="@id/showItemFragment" />
     </fragment>
 
     <fragment
@@ -22,11 +22,11 @@
             app:destination="@id/ShowTop100Fragment" />
         <action
             android:id="@+id/action_show_selected_to_tryBottomSheet"
-            app:destination="@id/ShowItemFragment" />
+            app:destination="@id/showItemFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/ShowItemFragment"
+        android:id="@+id/showItemFragment"
         android:name="by.ocheretny.cyptorating.ui.ShowItemFragment"
         android:label="TryBottomSheet">
         <argument
